@@ -1,0 +1,39 @@
+.off {
+  display: none;
+}
+.warning {
+  color: red;
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+.to-do-input {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+}
+input {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #7d7d7d;
+  outline: none;
+  font-size: 16px;
+}
+input:focus {
+  border-color: #006227;
+}
+input[type="text"] {
+  flex-grow: 1;
+}
+.to-do-input > button {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: hsl(144, 100%, 30%);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.to-do-input > button:hover {
+  background-color: hsl(144, 100%, 25%);
+}

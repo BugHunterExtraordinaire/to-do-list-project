@@ -1,0 +1,66 @@
+.to-do-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+.to-do-item > * {
+  font-size: 18px;
+}
+.to-do-item > button:not(:last-child) {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+.up-button {
+  background-color: white;
+  cursor: pointer;
+  color: green;
+  border: 1px solid green;
+}
+button.disabled {
+  opacity: 0.5;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  color: black;
+}
+button.disabled:hover {
+  opacity: 0.5;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  color: black;
+  cursor: not-allowed;
+}
+.down-button {
+  background-color: white;
+  cursor: pointer;
+  color: red;
+  border: 1px solid red;
+}
+.up-button:hover {
+  background-color: green;
+  color: white;
+}
+.down-button:hover {
+  background-color: red;
+  color: white;
+}
+.to-do-task {
+  flex: 1;
+}
+.to-do-time {
+  border-left: 1px solid #ccc;
+  padding: 5px 0px 5px 5px;
+}
+.to-do-date {
+  border-left: 1px solid #ccc;
+  padding: 5px 0px 5px 5px;
+}
+.delete-button {
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  color: red;
+}
