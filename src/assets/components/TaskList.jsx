@@ -12,16 +12,19 @@ export default function TaskList( { tasks, setTasks } ) {
   }
   return (
     <div className="task-list">
-      {tasks.map(({task, time, date, key}, index) => (
-        <TaskItem key={key} 
-                  task={task} 
-                  time={time}
-                  date={date}
-                  index={index}
-                  changePosition={changePosition}
-                  tasks={tasks}
-                  setTasks={setTasks} />
-      ))}
+      { tasks.length === 0 ? (
+        <p className="empty-message">No tasks to display</p>
+      ) : (
+        tasks.map(({task, time, date, key}, index) => (
+          <TaskItem key={key} 
+                    task={task} 
+                    time={time}
+                    date={date}
+                    index={index}
+                    changePosition={changePosition}
+                    tasks={tasks}
+                    setTasks={setTasks} />
+      )))}
     </div>
   );
 }
