@@ -7,3 +7,9 @@
   overflow-y: auto;
   height: auto;
 }
+.empty-message {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 10px;
+}

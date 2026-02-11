@@ -13,7 +13,7 @@ export default function TaskList( { tasks, setTasks } ) {
   return (
     <div className="task-list">
       { tasks.length === 0 ? (
-        <p className="empty-message">No tasks to display</p>
+        <p className="empty-message">All caught up! Enjoy your free time.</p>
       ) : (
         tasks.map(({task, time, date, key}, index) => (
           <TaskItem key={key} 
