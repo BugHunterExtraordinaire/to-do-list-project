@@ -28,9 +28,11 @@ export default function TaskInput( { tasks, setTasks, windowWidth } ) {
       
       setWarning("Please fill in all fields with valid values");
       warningRef.current.classList.remove("off");
+      warningRef.current.setAttribute("aria-hidden", "false");
 
       const timeoutId = setTimeout(() => {
         warningRef.current.classList.add("off");
+        warningRef.current.setAttribute("aria-hidden", "true");
         clearTimeout(timeoutId);
       }, 3000);
 
@@ -40,9 +42,11 @@ export default function TaskInput( { tasks, setTasks, windowWidth } ) {
 
       setWarning("Please select a future date");
       warningRef.current.classList.remove("off");
+      warningRef.current.setAttribute("aria-hidden", "false");
 
       const timeoutId = setTimeout(() => {
         warningRef.current.classList.add("off");
+        warningRef.current.setAttribute("aria-hidden", "true");
         clearTimeout(timeoutId);
       }, 3000);
 
@@ -53,9 +57,11 @@ export default function TaskInput( { tasks, setTasks, windowWidth } ) {
 
         setWarning("Please select a future time");
         warningRef.current.classList.remove("off");
+        warningRef.current.setAttribute("aria-hidden", "false");
 
         const timeoutId = setTimeout(() => {
           warningRef.current.classList.add("off");
+          warningRef.current.setAttribute("aria-hidden", "true");
           clearTimeout(timeoutId);
         }, 3000);
 
@@ -73,19 +79,23 @@ export default function TaskInput( { tasks, setTasks, windowWidth } ) {
   
   return (
     <>
-      <div className="task-input">
+      <section aria-label="Task Input" className="task-input">
         <input
           type="text"
           placeholder="Add a new task"
+          aria-label="Add a new task"
           ref={taskRef} />
         {windowWidth <= 480 && (
+
           <>
             <div className="mobile-inputs">
               <input 
                 type="time"
+                aria-label="Add task time"
                 ref={timeRef} />
               <input 
                 type="date"
+                aria-label="Add task date"
                 ref={dateRef} />
               <button onClick={addTask} className="add-task-button">Add Task</button>
             </div>
@@ -95,9 +105,11 @@ export default function TaskInput( { tasks, setTasks, windowWidth } ) {
           <div className="tablet-inputs">
             <input 
               type="time"
+              aria-label="Add task time"
               ref={timeRef} />
             <input 
               type="date"
+              aria-label="Add task date"
               ref={dateRef} />
             <button onClick={addTask} className="add-task-button">Add Task</button>
           </div>
@@ -106,15 +118,17 @@ export default function TaskInput( { tasks, setTasks, windowWidth } ) {
           <>
             <input 
               type="time"
+              aria-label="Add task time"
               ref={timeRef} />
             <input 
               type="date"
+              aria-label="Add task date"
               ref={dateRef} />
             <button onClick={addTask} className="add-task-button">Add Task</button>
           </>
         )}
-      </div>
-      <div className="warning off" ref={warningRef}>
+      </section>
+      <div className="warning off" ref={warningRef} aria-hidden="true" role="alert" aria-live="assertive">
         <p>{warning}</p>
       </div>
     </>

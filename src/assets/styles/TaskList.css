@@ -5,6 +5,7 @@
   margin-top: 10px;
   overflow-y: auto;
   height: auto;
+  scrollbar-width: none;
 }
 .empty-message {
   text-align: center;
