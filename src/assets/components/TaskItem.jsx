@@ -26,12 +26,14 @@ export default function TaskItem( { task, time, date, index, changePosition, tas
           </button>
         </>
       )}
-      {windowWidth > 830 && (
+      {(windowWidth > 480 && windowWidth <= 560) && (
         <>
-          <button className={index === 0 ? "up-button disabled priority-button" : "up-button priority-button"} 
-                  onClick={() => changePosition(index, -1)}>⬆</button>
-          <button className={index === tasks.length - 1 ? "down-button disabled priority-button" : "down-button priority-button"} 
-                  onClick={() => changePosition(index, 1)}>⬇</button>
+          <div className="mobile-priority-buttons">
+            <button className={index === 0 ? "up-button disabled priority-button" : "up-button priority-button"} 
+                    onClick={() => changePosition(index, -1)}>⬆</button>
+            <button className={index === tasks.length - 1 ? "down-button disabled priority-button" : "down-button priority-button"}
+                    onClick={() => changePosition(index, 1)}>⬇</button>
+          </div>
           <span className="item-number">Task {index + 1}:</span>
           <span className="task-name">{task}</span>
           <span className="task-time">{time[0] <= 12 ? `${String(time[0]).padStart(2, '0')}:${String(time[1]).padStart(2, '0')} AM` : `${String(Number(time[0]) - 12).padStart(2, '0')}:${String(time[1]).padStart(2, '0')} PM`}</span>
@@ -42,7 +44,7 @@ export default function TaskItem( { task, time, date, index, changePosition, tas
           </button>
         </>
       )}
-      {windowWidth >= 830 && (
+      {windowWidth > 560 && (
         <>
           <button className={index === 0 ? "up-button disabled priority-button" : "up-button priority-button"} 
                   onClick={() => changePosition(index, -1)}>⬆</button>
