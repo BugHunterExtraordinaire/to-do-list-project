@@ -16,7 +16,12 @@ body {
   height: 100dvh;
   width: 85dvw;
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
+  #root {
+    width: 70%;
+  }
+}
+@media (min-width: 1001px) {
   #root {
     width: 60%;
   }

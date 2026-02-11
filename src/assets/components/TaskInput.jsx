@@ -1,22 +1,9 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import "../styles/TaskInput.css";
 
-export default function TaskInput( { tasks, setTasks } ) {
+export default function TaskInput( { tasks, setTasks, windowWidth } ) {
   
   const [warning, setWarning] = useState("");
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const taskRef = useRef(null);
   const timeRef = useRef(null);
@@ -91,7 +78,7 @@ export default function TaskInput( { tasks, setTasks } ) {
           type="text"
           placeholder="Add a new task"
           ref={taskRef} />
-        {windowWidth < 480 && (
+        {windowWidth <= 480 && (
           <>
             <div className="mobile-inputs">
               <input 
@@ -100,11 +87,11 @@ export default function TaskInput( { tasks, setTasks } ) {
               <input 
                 type="date"
                 ref={dateRef} />
+              <button onClick={addTask} className="add-task-button">Add Task</button>
             </div>
-            <button onClick={addTask} className="add-task-button">Add Task</button>
           </>
         )}
-        {(windowWidth > 480 && windowWidth <= 768) && (
+        {(windowWidth > 480 && windowWidth <= 1000) && (
           <div className="tablet-inputs">
             <input 
               type="time"
@@ -115,7 +102,7 @@ export default function TaskInput( { tasks, setTasks } ) {
             <button onClick={addTask} className="add-task-button">Add Task</button>
           </div>
         )}
-        {windowWidth > 768 && (
+        {windowWidth > 1000 && (
           <>
             <input 
               type="time"
