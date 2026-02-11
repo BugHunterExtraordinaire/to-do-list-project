@@ -5,13 +5,13 @@ import './App.css'
 
 export default function App() {
 
-  const [toDos, setToDos] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   return (
     <>
       <h1>Task Managment Dashboard</h1>
-      <TaskInput toDos={toDos} setToDos={setToDos} />
-      <TaskList toDos={toDos} setToDos={setToDos} />
+      <TaskInput tasks={tasks} setTasks={setTasks} />
+      <TaskList tasks={tasks} setTasks={setTasks} />
     </>
   )
 }

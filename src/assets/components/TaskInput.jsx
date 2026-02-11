@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "../styles/TaskInput.css";
 
-export default function TaskInput( { toDos, setToDos } ) {
+export default function TaskInput( { tasks, setTasks } ) {
   
   const taskRef = useRef(null);
   const timeRef = useRef(null);
@@ -22,7 +22,7 @@ export default function TaskInput( { toDos, setToDos } ) {
       }, 3000);
       return;
     }
-    setToDos([...toDos, { task: newTask,
+    setTasks([...tasks, { task: newTask,
                           time: newTime,
                           date: newDate,
                           key: crypto.randomUUID() }]);
