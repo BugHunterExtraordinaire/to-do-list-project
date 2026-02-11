@@ -1,9 +1,22 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "../styles/TaskInput.css";
 
 export default function TaskInput( { tasks, setTasks } ) {
   
   const [warning, setWarning] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const taskRef = useRef(null);
   const timeRef = useRef(null);
@@ -78,12 +91,26 @@ export default function TaskInput( { tasks, setTasks } ) {
           type="text"
           placeholder="Add a new task"
           ref={taskRef} />
-        <input 
-          type="time"
-          ref={timeRef} />
-        <input 
-          type="date"
-          ref={dateRef} />
+        {windowWidth >= 480 && (
+          <>
+            <input 
+              type="time"
+              ref={timeRef} />
+            <input 
+              type="date"
+              ref={dateRef} />
+          </>
+        )}
+        {windowWidth < 480 && (
+          <div className="mobile-inputs">
+            <input 
+              type="time"
+              ref={timeRef} />
+            <input 
+              type="date"
+              ref={dateRef} />
+          </div>
+        )}
         <button onClick={addTask}>Add Task</button>
       </div>
       <div className="warning off" ref={warningRef}>
