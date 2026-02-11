@@ -38,7 +38,6 @@ export default function TaskInput( { tasks, setTasks } ) {
 
     } else if (inputDate.getTime() < currentDate.getTime()) {
 
-      console.log(inputDate.getTime(), currentDate.getTime());
       setWarning("Please select a future date");
       warningRef.current.classList.remove("off");
 
