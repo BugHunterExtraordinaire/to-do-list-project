@@ -91,7 +91,31 @@ export default function TaskInput( { tasks, setTasks } ) {
           type="text"
           placeholder="Add a new task"
           ref={taskRef} />
-        {windowWidth >= 480 && (
+        {windowWidth < 480 && (
+          <>
+            <div className="mobile-inputs">
+              <input 
+                type="time"
+                ref={timeRef} />
+              <input 
+                type="date"
+                ref={dateRef} />
+            </div>
+            <button onClick={addTask} className="add-task-button">Add Task</button>
+          </>
+        )}
+        {(windowWidth > 480 && windowWidth <= 768) && (
+          <div className="tablet-inputs">
+            <input 
+              type="time"
+              ref={timeRef} />
+            <input 
+              type="date"
+              ref={dateRef} />
+            <button onClick={addTask} className="add-task-button">Add Task</button>
+          </div>
+        )}
+        {windowWidth > 768 && (
           <>
             <input 
               type="time"
@@ -99,19 +123,9 @@ export default function TaskInput( { tasks, setTasks } ) {
             <input 
               type="date"
               ref={dateRef} />
+            <button onClick={addTask} className="add-task-button">Add Task</button>
           </>
         )}
-        {windowWidth < 480 && (
-          <div className="mobile-inputs">
-            <input 
-              type="time"
-              ref={timeRef} />
-            <input 
-              type="date"
-              ref={dateRef} />
-          </div>
-        )}
-        <button onClick={addTask}>Add Task</button>
       </div>
       <div className="warning off" ref={warningRef}>
         <p>{warning}</p>
