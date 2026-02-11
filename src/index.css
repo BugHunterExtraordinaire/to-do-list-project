@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100dvh;
-  width: 85dvw;
+  width: 95dvw;
 }
 @media (min-width: 769px) {
   #root {

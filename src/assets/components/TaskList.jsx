@@ -1,7 +1,7 @@
 import TaskItem from "./TaskItem";
 import "../styles/TaskList.css";
 
-export default function TaskList( { tasks, setTasks } ) {
+export default function TaskList( { tasks, setTasks, windowWidth } ) {
   function changePosition(index, direction) {
     const newTasks = [...tasks];
     const oldIndex = index;
@@ -23,7 +23,8 @@ export default function TaskList( { tasks, setTasks } ) {
                     index={index}
                     changePosition={changePosition}
                     tasks={tasks}
-                    setTasks={setTasks} />
+                    setTasks={setTasks}
+                    windowWidth={windowWidth} />
       )))}
     </div>
   );
