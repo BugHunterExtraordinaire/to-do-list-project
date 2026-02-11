@@ -11,7 +11,7 @@ export default function TaskList( { tasks, setTasks, windowWidth } ) {
     setTasks(newTasks);
   }
   return (
-    <div className="task-list">
+    <section className="task-list" aria-label="List of tasks">
       { tasks.length === 0 ? (
         <p className="empty-message">All caught up! Enjoy your free time.</p>
       ) : (
@@ -26,6 +26,6 @@ export default function TaskList( { tasks, setTasks, windowWidth } ) {
                     setTasks={setTasks}
                     windowWidth={windowWidth} />
       )))}
-    </div>
+    </section>
   );
 }
