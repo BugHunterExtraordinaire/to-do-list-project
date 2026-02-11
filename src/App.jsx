@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import ToDoInput from './assets/components/ToDoInput'
-import ToDoList from './assets/components/ToDoList'
+import TaskInput from './assets/components/TaskInput'
+import TaskList from './assets/components/TaskList'
 import './App.css'
 
 export default function App() {
@@ -9,9 +9,9 @@ export default function App() {
 
   return (
     <>
-      <h1>To Do List</h1>
-      <ToDoInput toDos={toDos} setToDos={setToDos} />
-      <ToDoList toDos={toDos} setToDos={setToDos} />
+      <h1>Task Managment Dashboard</h1>
+      <TaskInput toDos={toDos} setToDos={setToDos} />
+      <TaskList toDos={toDos} setToDos={setToDos} />
     </>
   )
 }

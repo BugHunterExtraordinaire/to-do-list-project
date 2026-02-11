@@ -1,7 +1,7 @@
-import ToDoItem from "./ToDoItem";
-import "../styles/ToDoList.css";
+import TaskItem from "./TaskItem";
+import "../styles/TaskList.css";
 
-export default function ToDoList( { toDos, setToDos } ) {
+export default function TaskList( { toDos, setToDos } ) {
   function changePosition(index, direction) {
     const newToDos = [...toDos];
     const oldIndex = index;
@@ -11,9 +11,9 @@ export default function ToDoList( { toDos, setToDos } ) {
     setToDos(newToDos);
   }
   return (
-    <div className="to-do-list">
+    <div className="task-list">
       {toDos.map(({task, time, date, key}, index) => (
-        <ToDoItem key={key} 
+        <TaskItem key={key} 
                   task={task} 
                   time={time}
                   date={date}

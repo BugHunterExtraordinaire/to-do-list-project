@@ -1,4 +1,4 @@
-.to-do-item {
+.task-item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -6,10 +6,10 @@
   width: 100%;
   border-bottom: 1px solid #ccc;
 }
-.to-do-item > * {
+.task-item > * {
   font-size: 18px;
 }
-.to-do-item > button:not(:last-child) {
+.task-item > button:not(:last-child) {
   width: 30px;
   height: 30px;
   border-radius: 5px;
@@ -47,14 +47,14 @@ button.disabled:hover {
   background-color: red;
   color: white;
 }
-.to-do-task {
+.task-name {
   flex: 1;
 }
-.to-do-time {
+.task-time {
   border-left: 1px solid #ccc;
   padding: 5px 0px 5px 5px;
 }
-.to-do-date {
+.task-date {
   border-left: 1px solid #ccc;
   padding: 5px 0px 5px 5px;
 }

@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import "../styles/ToDoInput.css";
+import "../styles/TaskInput.css";
 
-export default function ToDoInput( { toDos, setToDos } ) {
+export default function TaskInput( { toDos, setToDos } ) {
   
   const taskRef = useRef(null);
   const timeRef = useRef(null);
@@ -33,7 +33,7 @@ export default function ToDoInput( { toDos, setToDos } ) {
   
   return (
     <>
-      <div className="to-do-input">
+      <div className="task-input">
         <input
           type="text"
           placeholder="Add a new task"
